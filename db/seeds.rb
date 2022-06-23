@@ -55,9 +55,9 @@ class Seed
   @@desc_index = 0
 
   def self.create_article(file_name)
-    new_file_name = @@img_file_name.to_s
-    File.rename( file_name, new_file_name )   
-    
+    new_file_name = change_file_name(file_name)
+    File.rename(file_name, new_file_name)
+
     puts "#{new_file_name} -> #{extract_category(new_file_name)}"
     article = Article.new
     article.name = Pathname.new(file_name).basename.to_s
@@ -71,10 +71,15 @@ class Seed
     @@size_index += 1
     @@desc_index += 1
     @@img_file_name += 1
-    
-    
+
     article.save
     article
+  end
+
+  def self.change_file_name(file_name) 
+    path = Pathname.new(file_name)
+    abs_path = Pathname.new(path.dirname.join(@@img_file_name.to_s).expand_path.to_s + path.extname)
+    abs_path.to_s
   end
 
   def self.load_initial_articles
