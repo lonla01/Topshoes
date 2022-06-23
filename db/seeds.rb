@@ -56,11 +56,12 @@ class Seed
 
   def self.create_article(file_name)
     new_file_name = change_file_name(file_name)
-    File.rename(file_name, new_file_name)
+    basename = Pathname.new(file_name).basename.to_s
+    File.rename(file_name, new_file_name) unless basename.size == 5
 
     puts "#{new_file_name} -> #{extract_category(new_file_name)}"
     article = Article.new
-    article.name = Pathname.new(file_name).basename.to_s
+    article.name = Pathname.new(new_file_name).basename.to_s
     article.category = extract_category(file_name)
     article.price = ALL_PRICES[Random.rand(ALL_PRICES.size)]
     article.size = ALL_SIZES[Random.rand(ALL_SIZES.size)]
