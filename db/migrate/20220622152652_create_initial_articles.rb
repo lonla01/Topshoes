@@ -1,7 +1,7 @@
 class CreateInitialArticles < ActiveRecord::Migration[7.0]
 
   def up
-    Article.load_initial_articles
+    #Article.load_initial_articles
   end
 
   def down

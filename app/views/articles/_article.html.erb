@@ -1,11 +1,8 @@
-<tr>
+<tr onclick="location.href='<%= article_url(article) %>'" style="cursor: pointer">
   <td><%= article.id %></td>
   <td><%= article.name %></td>
   <td><%= article.price %></td>
   <td><%= article.size %></td>
+  <td><%= article.stock %></td>
   <td><%= article.color %></td>
-  <td><div>
-    <%= link_to "Show this article", article %> |
-    <%= link_to "Back to articles", articles_path %>
-  </div></td>
 </tr>

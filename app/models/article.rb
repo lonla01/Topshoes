@@ -38,21 +38,21 @@ class Article < ApplicationRecord
     Pathname.new(file_name).parent.basename
   end
 
-  def self.create_article(file_name)
-    price_index = 0
-    size_index = 0
-    desc_index = 0
+  @@price_index = 0
+  @@size_index = 0
+  @@desc_index = 0
 
+  def self.create_article(file_name)
     puts "#{file_name} -> #{extract_category(file_name)}"
     article = Article.new
     article.name = file_name
     article.category = extract_category(file_name)
-    article.price = ALL_PRICES[price_index%(ALL_PRICES.size)]
-    article.size = ALL_SIZES[size_index%(ALL_SIZES.size)]
-    #article.descriprion = ALL_DESCRIPTIONS[desc_index%(ALL_DESCRIPTIONS.size)]
-    price_index += 1
-    size_index += 1
-    desc_index += 1
+    article.price = ALL_PRICES[@@price_index%(ALL_PRICES.size)]
+    article.size = ALL_SIZES[@@size_index%(ALL_SIZES.size)]
+    #article.descriprion = ALL_DESCRIPTIONS[@@desc_index%(ALL_DESCRIPTIONS.size)]
+    @@price_index += 1
+    @@size_index += 1
+    @@desc_index += 1
     article.img = Pathname.new(file_name).basename.to_s
     article.save
     return article

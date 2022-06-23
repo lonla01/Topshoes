@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_22_152652) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_22_231917) do
   create_table "articles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_22_152652) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stock"
+    t.string "description"
   end
 
 end
