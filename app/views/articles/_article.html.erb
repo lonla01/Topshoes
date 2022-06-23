@@ -1,8 +1,9 @@
-<tr onclick="location.href='<%= article_url(article) %>'" style="cursor: pointer">
-  <td><%= article.id %></td>
-  <td><%= article.name %></td>
-  <td><%= article.price %></td>
-  <td><%= article.size %></td>
-  <td><%= article.stock %></td>
-  <td><%= article.color %></td>
-</tr>
+
+<div class="card" style="width: 18rem;">
+  <img src="<%= article.img %>" class="card-img-top" alt="<%= article.name %>">
+  <div class="card-body">
+    <h5 class="card-title"><%= article.category %></h5>
+    <p class="card-text"><%= article.description %></p>
+    <a href="<%= article_url(article) %>" class="btn btn-primary">Acheter</a>
+  </div>
+</div>

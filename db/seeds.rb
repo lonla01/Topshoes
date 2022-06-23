@@ -8,8 +8,10 @@
 
 require 'pathname'
 require 'find'
+require 'uri'
 
 class Seed
+
   ALL_PRICES = [500, 1000, 1500, 2000, 2500, 3_000, 3_500, 4_000, 4_500, 5_000, 8_000, 9_000, 10_000, 12_000, 15_000,
                 17_000, 19_000]
   ALL_SIZES_RANGE = 16...43
@@ -23,6 +25,7 @@ class Seed
                       'Sac à Bandoulière pour Femme en Cuir Souple synthétique',
                       'Borsa donna Tracolla Crossbody M Romantica jacquard blu denim',
                       'Femme Mode Rainbow Fleurs Décorées La Paille Fourre-Tout Sac']
+  @@img_file_name = 10000
 
   def self.load_path
     # path = "/Users/patrice/Desktop/Developer/Projects/Topshoes/app/assets/images/Babouches1"
@@ -52,18 +55,23 @@ class Seed
   @@desc_index = 0
 
   def self.create_article(file_name)
-    puts "#{file_name} -> #{extract_category(file_name)}"
+    new_file_name = @@img_file_name.to_s
+    File.rename( file_name, new_file_name )   
+    
+    puts "#{new_file_name} -> #{extract_category(new_file_name)}"
     article = Article.new
-    article.name = file_name
+    article.name = Pathname.new(file_name).basename.to_s
     article.category = extract_category(file_name)
     article.price = ALL_PRICES[Random.rand(ALL_PRICES.size)]
     article.size = ALL_SIZES[Random.rand(ALL_SIZES.size)]
     article.description = ALL_DESCRIPTIONS[Random.rand(ALL_DESCRIPTIONS.size)]
     article.stock = ALL_STOCKS[Random.rand(ALL_STOCKS.size)]
+    article.img = "file://#{Pathname.new(new_file_name).to_s}"
     @@price_index += 1
     @@size_index += 1
     @@desc_index += 1
-    article.img = Pathname.new(file_name).basename.to_s
+    @@img_file_name += 1
+    
     
     article.save
     article
@@ -83,4 +91,5 @@ class Seed
   end
 end
 
+Article.delete_all
 Seed.load_initial_articles
