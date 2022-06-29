@@ -1,10 +1,15 @@
-<h1>Editing article</h1>
+<div style="padding:80px">
+  <h1 style="padding-bottom:20px">Editing article</h1>
 
-<%= render "form", article: @article %>
+  <%= render "form", article: @article %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this article", @article %> |
-  <%= link_to "Back to articles", articles_path %>
+  <div style="padding-top:20px">
+    <h3>
+      <%= link_to "Show this article", @article %>
+      |
+      <%= link_to "Back to articles", articles_path %>
+    </h3>
+  </div>
 </div>

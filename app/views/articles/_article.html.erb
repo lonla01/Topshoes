@@ -1,9 +1,9 @@
 
 <div class="card" style="width: 18rem;">
-  <img src="<%= article.img %>" class="card-img-top" alt="<%= article.name %>">
+  <img src="<%= article.img_loc %>" class="card-img-top" alt="<%= article.name %>">
   <div class="card-body">
-    <h5 class="card-title"><%= article.category %></h5>
-    <p class="card-text"><%= article.description %></p>
+    <h5 class="card-title"><%= number_to_currency( article.price ) %></h5>
+    <p class="card-text"><%= sanitize( article.description )%></p>
     <a href="<%= article_url(article) %>" class="btn btn-primary">Acheter</a>
   </div>
 </div>

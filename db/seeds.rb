@@ -56,18 +56,21 @@ class Seed
 
   def self.create_article(file_name)
     new_file_name = change_file_name(file_name)
+    category = extract_category(file_name)
     basename = Pathname.new(file_name).basename.to_s
-    File.rename(file_name, new_file_name) unless basename.size == 5
+    image_dir = Rails.root.join('public', category.to_s)
+    File.rename(file_name, new_file_name)
 
     puts "#{new_file_name} -> #{extract_category(new_file_name)}"
     article = Article.new
-    article.name = Pathname.new(new_file_name).basename.to_s
-    article.category = extract_category(file_name)
+    article.name = basename
+    article.category = category
     article.price = ALL_PRICES[Random.rand(ALL_PRICES.size)]
     article.size = ALL_SIZES[Random.rand(ALL_SIZES.size)]
     article.description = ALL_DESCRIPTIONS[Random.rand(ALL_DESCRIPTIONS.size)]
     article.stock = ALL_STOCKS[Random.rand(ALL_STOCKS.size)]
     article.img = "file://#{Pathname.new(new_file_name).to_s}"
+    article.img = "file://#{image_dir.to}#{Pathname.new(new_file_name).to_s}"
     @@price_index += 1
     @@size_index += 1
     @@desc_index += 1
@@ -75,6 +78,12 @@ class Seed
 
     article.save
     article
+  end
+
+  def ___self.change_file_name(file_name) 
+    path = Pathname.new(file_name)
+    abs_path = Pathname.new(path.dirname.join(@@img_file_name.to_s).expand_path.to_s + path.extname)
+    abs_path.to_s
   end
 
   def self.change_file_name(file_name) 
