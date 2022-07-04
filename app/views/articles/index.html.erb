@@ -1,19 +1,22 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Articles</h1>
-
-
-<% @articles.in_groups_of(4, false).each do |group| %>
-  <div class='row'>
-    <% group.each do |article| %>
-      <div class='col-md-3'>
-        <div onclick="location.href='<%= article_url(article) %>'" style="cursor: pointer">
-          <%= render article %>
+<br>
+<br>
+<div>
+  <% @articles.in_groups_of(3, false).each do |group| %>
+    <div class='row'>
+      <% group.each do |article| %>
+        <div class='col-md-4'>
+          <div
+            onclick="location.href='<%= article_url(article) %>'"
+            style="cursor: pointer"
+          >
+            <%= render article %>
+          </div>
+          <br>
         </div>
-      </div>
-    <% end %>
-  </div>
-<% end %>
-
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to "New article", new_article_path %>

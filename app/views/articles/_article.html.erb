@@ -1,9 +1,45 @@
-
-<div class="card" style="width: 18rem;">
-  <img src="<%= article.img_loc %>" class="card-img-top" alt="<%= article.name %>">
-  <div class="card-body">
-    <h5 class="card-title"><%= number_to_currency( article.price ) %></h5>
-    <p class="card-text"><%= sanitize( article.description )%></p>
-    <a href="<%= article_url(article) %>" class="btn btn-primary">Acheter</a>
+<div class="card" style="width: 26rem; padding:0px">
+  <img
+    src="<%= article.img_loc %>"
+    class="card-img-top"
+    alt="<%= article.name %>"
+  >
+  <div class="product-item card-body container">
+    <div class="row" style="padding: 0px">
+      <div class="col-sm-8 d-flex align-items-center">
+        <h5>
+          <a href="#">Title goes here</a>
+        </h5>
+      </div>
+      <div
+        class="col-sm-4 d-flex align-items-center"
+        style="text-align:right; font-weight: 800; font-size: 22px; color: #121212"
+      >
+        <%= number_to_currency( article.price, :precision => 0 ) %>
+      </div>
+    </div>
+    <br>
+    <div class="row" style="padding: 0px">
+      <div class="col-sm-12 d-flex align-items-center">
+        <h6 class="card-text"><%= sanitize( article.description ) %></h6>
+      </div>
+    </div>
+    <br><br>
+    <div class="row down-content" style="padding: 0px">
+      <div class="col-sm-8 d-flex align-items-center" style="text-align:left; margin-left:0px;">
+        <ul class="stars">
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+        </ul>
+      </div>
+      <div class="col-sm-4 d-flex align-items-center" style="text-align:right; margin-right:0px; padding: 0px; color: red; vertical-align: center">
+        
+           Reviews (12)
+        
+      </div>
+    </div>
   </div>
 </div>
