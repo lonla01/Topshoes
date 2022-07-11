@@ -15,7 +15,7 @@
         class="col-sm-4 d-flex align-items-center"
         style="text-align:right; font-weight: 800; font-size: 22px; color: #121212"
       >
-        <%= number_to_currency( article.price, :precision => 0 ) %>
+        <%= number_to_currency( article.price, :precision => 0, :unit => "CFA " ) %>
       </div>
     </div>
     <br>

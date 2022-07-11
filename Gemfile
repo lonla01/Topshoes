@@ -28,7 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Used by Format Document for code formatting
-gem 'erb-formatter'
+gem "erb-formatter"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
