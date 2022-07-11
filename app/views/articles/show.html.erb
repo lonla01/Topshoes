@@ -52,8 +52,8 @@
     <br><br>
     
     <div class="product-item card-body container">
-      <div class="row down-content" style="padding: 0px">
-        <div class="col-sm-8 d-flex align-items-center" style="text-align:left; margin-left:0px;">
+      <div class="row down-content" style="padding:20px 40px 40px 40px">
+        <div class="col-sm-11 d-flex align-items-center" style="text-align:left; margin-left:0px;">
           <ul class="stars">
             <li><i class="fa fa-star"></i></li>
             <li><i class="fa fa-star"></i></li>
@@ -62,29 +62,28 @@
             <li><i class="fa fa-star"></i></li>
           </ul>
         </div>
-        <div class="col-sm-4 d-flex align-items-center" style="text-align:right; margin-right:0px; padding: 0px; color: red; vertical-align: center">
-        
-           <h5>Reviews (12)</h>
-        
+        <div class="col-sm-1 d-flex align-items-center" style="text-align:right; margin-right:0px; padding: 0px; color: red; vertical-align: center">
+           <h5>Reviews (12)</h5>
         </div>
-      <div class="row" style="padding:40px">
+      </div>
+      <div class="row" style="padding:0px 40px 0px 40px">
          <!-- Start Bootstrap Form -->
         <form>
           <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputName4">Name</label>
+            <div class="form-group col-md-6" style="padding-bottom:20px">
+              <label for="inputName4">Nom:</label>
               <input type="text" class="form-control" id="inputName4" placeholder="Nom">
             </div>
-            <div class="form-group col-md-6">
-              <label for="inputEmail4">Email</label>
+            <div class="form-group col-md-6" style="padding-bottom:20px">
+              <label for="inputEmail4">Email:</label>
               <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" style="padding-bottom:20px">
             <label for="inputReview">Votre revue:</label>
-            <textarea class="form-control" placeholder="Insérer votre revue..."></textarea>
+            <textarea rows="5" class="form-control" placeholder="Insérer votre revue..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">S'identifier</button>
+          <button type="submit" class="btn btn-primary">Poster</button>
         </form>
         <!-- End Start Bootsrap Form -->
       </div>
@@ -93,13 +92,13 @@
 <br><br>
 <div class="container">
   <div class="row">
-    <h3> <%= link_to "Edit this article", edit_article_path(@article) %> </h3>
+    <h3> <%= link_to "Modifier cet article", edit_article_path(@article) %> </h3>
   </div>
   <div class="row">
-    <h3> <%= link_to "Back to articles", articles_path %> </h3>
+    <h3> <%= link_to "Catalogue", articles_path %> </h3>
   </div>
   <div class="row">
-    <h3> <%= button_to "Destroy this article", @article, method: :delete %> </h3>
+    <h3> <%= button_to "Supprimer cet article", @article, method: :delete %> </h3>
   </div>
 </div>
 
