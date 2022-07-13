@@ -2,10 +2,10 @@
 <br>
 <br>
 <div>
-  <% @articles.in_groups_of(3, false).each do |group| %>
-    <div class='row'>
+  <% @articles.in_groups_of(4, false).each do |group| %>
+    <div class='row' style="padding-left:45px">
       <% group.each do |article| %>
-        <div class='col-md-4'>
+        <div class='col-md-3'>
           <div
             onclick="location.href='<%= article_url(article) %>'"
             style="cursor: pointer"
