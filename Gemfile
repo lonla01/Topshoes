@@ -71,10 +71,12 @@ group :development do
 end
 
 group :development, :test do
-  # Define Postgresql
-  gem 'pg', '~> 1.4', '>= 1.4.1'
-  
   # Define RSpec Rails dependency
   gem 'rspec-rails'
+end
+
+group :production do
+  # Define Postgresql
+  gem 'pg', '~> 1.4', '>= 1.4.1'
 end
 
