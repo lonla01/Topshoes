@@ -9,9 +9,6 @@ gem "rails", "~> 7.0.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use mysql as the database for Active Record
-gem "mysql2", "~> 0.5"
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -60,6 +57,9 @@ group :development, :test do
 end
 
 group :development do
+  # Use mysql as the database for Active Record
+  gem "mysql2", "~> 0.5"
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -71,6 +71,9 @@ group :development do
 end
 
 group :development, :test do
+  # Define Postgresql
+  gem 'pg', '~> 1.4', '>= 1.4.1'
+  
   # Define RSpec Rails dependency
   gem 'rspec-rails'
 end
