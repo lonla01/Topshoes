@@ -38,6 +38,10 @@
 
   <body>
 
+    <!-- Rails notice flash message. -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -64,15 +68,32 @@
                 </a>
               </li> 
               <li class="nav-item active">
-                <a class="nav-link" href="/products.html">Notre catalogue</a>
+                <a class="nav-link" href="/products.html">Catalogue</a>
               </li>
+
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "Quitter", destroy_user_session_path, method: :delete, class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Mon Compte", edit_user_registration_path, class:"nav-link" %>
+                </li>
+              <% else %>
+                  <li class="nav-item">
+                    <%= link_to "S'identifier", new_user_session_path, class:"nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "S'enregistrer", new_user_registration_path, class:"nav-link" %>
+                  </li>
+              <% end %>
               <li class="nav-item">
-                <a class="nav-link" href="/about.html">Qui sommes nous ?</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contact.html">Nous contacter</a>
+                <a class="nav-link" href="/contact.html">Contact</a>
               </li>
             </ul>
+
+            
+
+
           </div>
         </div>
       </nav>
@@ -84,7 +105,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="text-content">
-              <h4>ARRIVAGES</h4>
+              <h5>ARRIVAGES</h5>
               <h2>Boutique Tchoko's</h2>
             </div>
           </div>
