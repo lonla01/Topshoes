@@ -44,7 +44,8 @@ class Seed
   def self.load_path
     # path = "/Users/patrice/Desktop/Developer/Projects/Topshoes/app/assets/images/Babouches1"
     # file_dir = File.dirname(__FILE__)
-    file_dir = Rails.root.join('app', 'assets', 'images')
+    file_dir = Rails.root.join('assets', 'images')
+    puts "Rails.root = #{Rails.root.to_s}"
     puts "file_dir = #{file_dir}"
     file_dir
   end
