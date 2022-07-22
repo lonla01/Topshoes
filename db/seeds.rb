@@ -9,6 +9,7 @@
 require 'pathname'
 require 'find'
 require 'uri'
+require 'fileutils'
 
 class Seed
 
@@ -70,6 +71,8 @@ class Seed
     category = extract_category(file_name)
     basename = Pathname.new(file_name).basename.to_s
     image_dir = Rails.root.join('public', category.to_s)
+    # Create the parent folder if it doesn't exists.
+    FileUtils.mkdir_p new_file_name.parent
     File.rename(file_name, new_file_name)
 
     puts "Old_file:[#{file_name}] -> New_file:[#{new_file_name}]"
