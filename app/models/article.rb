@@ -13,11 +13,11 @@ class Article < ApplicationRecord
     img_url
   end
 
-  def local_base_url
+  def self.local_base_url
     "http://#{@@host}:#{@@port}"
   end
 
-  def base_url
+  def self.base_url
     "https://topshoes.herokuapp.com/"
   end
 
