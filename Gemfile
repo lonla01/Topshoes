@@ -54,12 +54,12 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Define RSpec Rails dependency
+  gem 'rspec-rails'
 end
 
 group :development do
-  # Use mysql as the database for Active Record
-  gem "mysql2", "~> 0.5"
-
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -70,12 +70,7 @@ group :development do
   # gem "spring"
 end
 
-group :development, :test do
-  # Define RSpec Rails dependency
-  gem 'rspec-rails'
-end
-
-group :production do
+group :development, :test, :production do
   # Define Postgresql
   gem 'pg', '~> 1.4', '>= 1.4.1'
 end

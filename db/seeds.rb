@@ -12,6 +12,11 @@ require 'uri'
 
 class Seed
 
+  @@img_serial_num = 10000
+  @@price_index = 0
+  @@size_index = 0
+  @@desc_index = 0
+
   ALL_PRICES = [500, 1000, 1500, 2000, 2500, 3_000, 3_500, 4_000, 4_500, 5_000, 8_000, 9_000, 10_000, 12_000, 15_000,
                 17_000, 19_000]
   ALL_SIZES_RANGE = 16...43
@@ -25,7 +30,16 @@ class Seed
                       'Sac à Bandoulière pour Femme en Cuir Souple synthétique',
                       'Borsa donna Tracolla Crossbody M Romantica jacquard blu denim',
                       'Femme Mode Rainbow Fleurs Décorées La Paille Fourre-Tout Sac']
-  @@img_file_name = 10000
+  
+
+                    
+  def self.host
+    @@host
+  end
+
+  def self.port
+    @@port
+  end
 
   def self.load_path
     # path = "/Users/patrice/Desktop/Developer/Projects/Topshoes/app/assets/images/Babouches1"
@@ -50,18 +64,14 @@ class Seed
     Pathname.new(file_name).parent.basename
   end
 
-  @@price_index = 0
-  @@size_index = 0
-  @@desc_index = 0
-
   def self.create_article(file_name)
-    new_file_name = change_file_name(file_name)
+    new_file_name = to_serial_num(file_name)
     category = extract_category(file_name)
     basename = Pathname.new(file_name).basename.to_s
     image_dir = Rails.root.join('public', category.to_s)
     File.rename(file_name, new_file_name)
 
-    puts "#{new_file_name} -> #{extract_category(new_file_name)}"
+    puts "Old_file:[#{file_name}] -> New_file:[#{new_file_name}]"
     article = Article.new
     article.name = basename
     article.category = category
@@ -69,26 +79,23 @@ class Seed
     article.size = ALL_SIZES[Random.rand(ALL_SIZES.size)]
     article.description = ALL_DESCRIPTIONS[Random.rand(ALL_DESCRIPTIONS.size)]
     article.stock = ALL_STOCKS[Random.rand(ALL_STOCKS.size)]
-    article.img = "file://#{Pathname.new(new_file_name).to_s}"
-    article.img = "file://#{image_dir.to}#{Pathname.new(new_file_name).to_s}"
+    article.img = "#{image_dir.to_s}/#{Pathname.new(new_file_name).basename}"
+    puts "article.img=[#{article.img}]"
+    puts "article.img_loc=[#{article.img_loc}]"
     @@price_index += 1
     @@size_index += 1
     @@desc_index += 1
-    @@img_file_name += 1
+    @@img_serial_num += 1
 
     article.save
     article
   end
 
-  def ___self.change_file_name(file_name) 
+  def self.to_serial_num(file_name) 
+    public_root = Rails.root.join('public')
+    category = extract_category(file_name)
     path = Pathname.new(file_name)
-    abs_path = Pathname.new(path.dirname.join(@@img_file_name.to_s).expand_path.to_s + path.extname)
-    abs_path.to_s
-  end
-
-  def self.change_file_name(file_name) 
-    path = Pathname.new(file_name)
-    abs_path = Pathname.new(path.dirname.join(@@img_file_name.to_s).expand_path.to_s + path.extname)
+    abs_path = Pathname.new(public_root.join(category, path.basename).expand_path.to_s)
     abs_path.to_s
   end
 

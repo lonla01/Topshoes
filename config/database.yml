@@ -10,11 +10,12 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
+  username: topshoes
   password: onlyme
+  port: 5432
   socket: /tmp/mysql.sock
 
 development:
@@ -50,7 +51,6 @@ test:
 #
 production:
   <<: *default
-  adapter: postgresql
   database: topshoes
   username: topshoes
   password: <%= ENV["TOPSHOES_DATABASE_PASSWORD"] %>
