@@ -6,20 +6,12 @@ class Article < ApplicationRecord
   @@host = "localhost"
   @@port = 3000
   
+  def img_name
+    Pathname.new(img).basename.to_s.sub! 'jpeg', 'jpg'
+  end
+
   def img_loc
-    basename = Pathname.new(img).basename
-    img_path = Pathname.new(category).join(basename)
-    img_url = "#{Article.base_url}/#{img_path}"
-    img_url
+    Pathname.new(category).join(img_name)
   end
-
-  def self.local_base_url
-    "http://#{@@host}:#{@@port}"
-  end
-
-  def self.base_url
-    "https://topshoes.herokuapp.com/"
-  end
-
   
 end
