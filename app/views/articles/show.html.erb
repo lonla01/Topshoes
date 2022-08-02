@@ -5,7 +5,7 @@
     <div class="details container">
       <div class="left">
         <div class="main">
-          <img src="<%= @article.img_loc %>" alt="" />
+          <%= image_tag asset_path( @article.img_loc) unless @article.img_loc.nil? %>
         </div>
         <div class="thumbnails">
           <div class="thumbnail">
