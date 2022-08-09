@@ -11,7 +11,7 @@ class Article < ApplicationRecord
   end
 
   def img_loc
-    Pathname.new(category).join(img_name)
+    Pathname.new('images').join(category, img_name)
   end
   
 end

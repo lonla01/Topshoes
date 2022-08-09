@@ -36,5 +36,7 @@ module Topshoes
 
     # Enable the Rails app to serve static files
     config.serve_static_assets = true
+
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
   end
 end

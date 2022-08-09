@@ -13,27 +13,28 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-     <!-- Bootstrap core CSS -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <%= stylesheet_link_tag "bootstrap.min", rel:"stylesheet", integrity:"sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor", crossorigin:"anonymous" %>
     
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <%= image_tag "favicon.ico", rel:"shortcut icon", type:"image/x-icon" %>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/assets/css/css/cloudflare.all.min.css" />
+    <%= stylesheet_link_tag "cloudflare.all.min" %>
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="/assets/css/fontawesome.css">
-    <link rel="stylesheet" href="/assets/css/flex-slider.css">
-    <link rel="stylesheet" href="/assets/css/templatemo-sixteen.css">
-    <link rel="stylesheet" href="/assets/css/owl.css">
+    <%= stylesheet_link_tag "fontawesome", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "flex-slider" %>
+    <%= stylesheet_link_tag "templatemo-sixteen" %>
+    <%= stylesheet_link_tag "owl" %>
 
     <!-- Custom StyleSheet -->
-    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <%= stylesheet_link_tag "styles" %>
 
     <!-- EStore CSS Libraries -->
-        <link href="/assets/css/slick.scss" rel="stylesheet">
-        <link href="/assets/css/slick-theme.css" rel="stylesheet">
+    <%= stylesheet_link_tag "slick" %>
+    <%= stylesheet_link_tag "slick-theme" %>
+
   </head>
 
   <body>
@@ -150,17 +151,15 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <%= javascript_include_tag "jquery.min" %>
+    <%= javascript_include_tag "bootstrap.bundle.min" %>
 
     <!-- Additional Scripts -->
-    <script src="/assets/js/custom.js"></script>
-    <script src="/assets/js/owl.js"></script>
-    <script src="/assets/js/slick.js"></script>
-    <script src="/assets/js/isotope.js"></script>
-    <script src="/assets/js/accordions.js"></script>
-
+    <%= javascript_include_tag "custom" %>
+    <%= javascript_include_tag "owl" %>
+    <%= javascript_include_tag "slick" %>
+    <%= javascript_include_tag "isotope" %>
+    <%= javascript_include_tag "accordions" %>
 
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
