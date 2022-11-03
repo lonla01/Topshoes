@@ -75,3 +75,6 @@ group :development, :test, :production do
   gem 'pg', '~> 1.4', '>= 1.4.1'
 end
 
+
+gem 'rails_12factor', group: :production
+
