@@ -36,5 +36,6 @@ module Topshoes
 
     # Enable the Rails app to serve static files
     config.serve_static_assets = true
+    config.assets.serve_static_files = true
   end
 end
