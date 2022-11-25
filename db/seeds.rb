@@ -70,6 +70,8 @@ class Seed
     new_file_name = to_serial_num(file_name)
     category = extract_category(file_name)
     basename = Pathname.new(file_name).basename.to_s
+
+
     image_dir = Rails.root.join('public', category.to_s)
     # Create the parent folder if it doesn't exists.
     FileUtils.mkdir_p Pathname.new(new_file_name).parent.to_s
@@ -100,14 +102,21 @@ class Seed
     category = extract_category(file_name)
     path = Pathname.new(file_name)
     abs_path = Pathname.new(public_root.join(category, path.basename).expand_path.to_s)
-    abs_path.to_s
+    serial_num_path = abs_path.to_s
+    if serial_num_path.include?('jpeg') 
+      serial_num_path.sub!('jpeg', 'jpg')
+    end
+
+    serial_num_path
   end
 
   def self.load_initial_articles
-    puts 'Loading initial articles'
+    puts "Loading initial articles from: #{load_path}"
     all_articles = []
     Find.find(load_path.to_s) do |file|
+      
       test_res = invalid_dir?(file) || !supported_images_type?(file)
+      #puts "Processing file: #{file} is invalid: #{test_res}"
       next if test_res
       next if File.directory? file
 

@@ -70,7 +70,12 @@ group :development do
   # gem "spring"
 end
 
-group :development, :test, :production do
+group :development, :test do
+  # Define SQLite
+  gem 'sqlite3', '~> 1.4'
+end
+
+group :production do
   # Define Postgresql
   gem 'pg', '~> 1.4', '>= 1.4.1'
 end
