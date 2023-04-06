@@ -14,26 +14,26 @@
     <%= javascript_importmap_tags %>
 
      <!-- Bootstrap core CSS -->
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <%= stylesheet_link_tag "bootstrap.min.css", "data-turbo-track": "reload" %>
     
     <!-- Favicon -->
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/assets/css/css/cloudflare.all.min.css" />
+    <%= stylesheet_link_tag "cloudflare.all.min", "data-turbo-track": "reload" %>
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="/assets/css/fontawesome.css">
-    <link rel="stylesheet" href="/assets/css/flex-slider.css">
-    <link rel="stylesheet" href="/assets/css/templatemo-sixteen.css">
-    <link rel="stylesheet" href="/assets/css/owl.css">
+    <%= stylesheet_link_tag "fontawesome", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "flex-slider", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "templatemo-sixteen", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "owl", "data-turbo-track": "reload" %>
 
     <!-- Custom StyleSheet -->
-    <link rel="stylesheet" href="/assets/css/styles.css" />
+    <%= stylesheet_link_tag "styles", "data-turbo-track": "reload" %>
 
     <!-- EStore CSS Libraries -->
-        <link href="/assets/css/slick.scss" rel="stylesheet">
-        <link href="/assets/css/slick-theme.css" rel="stylesheet">
+      <%= stylesheet_link_tag "slick", "data-turbo-track": "reload" %>
+      <%= stylesheet_link_tag "slick-theme", "data-turbo-track": "reload" %>
   </head>
 
   <body>

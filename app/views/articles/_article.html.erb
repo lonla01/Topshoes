@@ -1,5 +1,5 @@
 <div class="card" style="width: 26rem; padding:0px">
-  <%= image_tag asset_path(article.img_loc), class:"card-img-top" unless article.img_loc.nil? %>
+  <%= image_tag "#{article.category}/#{article.img_loc}", class:"card-img-top" unless article.img_loc.nil? %>
   <div class="product-item card-body container">
     <div class="row" style="padding: 0px">
       <div class="col-sm-7 d-flex align-items-center">

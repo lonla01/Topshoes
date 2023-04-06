@@ -5,7 +5,7 @@
     <div class="details container">
       <div class="left">
         <div class="main">
-          <%= image_tag asset_path( @article.img_loc) unless @article.img_loc.nil? %>
+          <%= image_tag "#{@article.category}/#{@article.img_loc}" unless @article.img_loc.nil? %>
         </div>
         <div class="thumbnails">
           <div class="thumbnail">
@@ -103,6 +103,5 @@
     <h3> <%= button_to "Supprimer cet article", @article, method: :delete %> </h3>
   </div>
 </div>
-
 
 

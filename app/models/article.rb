@@ -7,11 +7,16 @@ class Article < ApplicationRecord
   @@port = 3000
   
   def img_name
-    Pathname.new(img).basename.to_s.sub! 'jpeg', 'jpg'
+    puts "article.img=[#{img}]"
+    result = Pathname.new(img).basename.to_s.sub! 'jpeg', 'jpeg'
+    if result == nil 
+      result = ""
+    end
+    result
   end
 
   def img_loc
-    Pathname.new(category).join(img_name)
+    Pathname.new(img_name).basename.to_s
   end
   
 end

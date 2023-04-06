@@ -72,8 +72,8 @@ class Seed
     basename = Pathname.new(file_name).basename.to_s
     image_dir = Rails.root.join('public', category.to_s)
     # Create the parent folder if it doesn't exists.
-    FileUtils.mkdir_p Pathname.new(new_file_name).parent.to_s
-    File.rename(file_name, new_file_name)
+    # FileUtils.mkdir_p Pathname.new(new_file_name).parent.to_s
+    # File.rename(file_name, new_file_name)
 
     puts "Old_file:[#{file_name}] -> New_file:[#{new_file_name}]"
     article = Article.new
@@ -83,7 +83,7 @@ class Seed
     article.size = ALL_SIZES[Random.rand(ALL_SIZES.size)]
     article.description = ALL_DESCRIPTIONS[Random.rand(ALL_DESCRIPTIONS.size)]
     article.stock = ALL_STOCKS[Random.rand(ALL_STOCKS.size)]
-    article.img = "#{image_dir.to_s}/#{Pathname.new(new_file_name).basename}"
+    article.img = file_name
     puts "article.img=[#{article.img}]"
     puts "article.img_loc=[#{article.img_loc}]"
     @@price_index += 1

@@ -9,5 +9,5 @@ Rails.application.config.assets.version = "1.0"
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w( bootstrap.min.css cloudflare.all.min.css flex-slider.css owl.css slick-theme.css slick.css styles.css templatemo-sixteen.css )
-Rails.application.config.assets.precompile += %w( accordion.js custom.js isotope.js owl.js slick.js )
+# Rails.application.config.assets.precompile += %w( bootstrap.min.css cloudflare.all.min.css flex-slider.css owl.css slick-theme.css slick.css styles.css templatemo-sixteen.css )
+# Rails.application.config.assets.precompile += %w( accordion.js custom.js isotope.js owl.js slick.js )
