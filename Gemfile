@@ -46,7 +46,7 @@ gem "bootsnap", require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # Use Sass to process CSS
-gem "sassc-rails", "~> 2.1"
+# gem "sassc-rails", "~> 2.1"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -73,3 +73,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "tailwindcss-rails", "~> 2.0"
+
+gem "dartsass-rails", "~> 0.4.1"
