@@ -242,7 +242,7 @@ DEPENDENCIES
   devise (~> 4.8, >= 4.8.1)
   importmap-rails
   jbuilder
-  pg (~> 1.1)
+  pg (~> 1.4, >= 1.4.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   sassc-rails (~> 2.1)
