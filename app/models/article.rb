@@ -7,7 +7,7 @@ class Article < ApplicationRecord
   @@port = 3000
   
   def img_name
-    result = Pathname.new(img).basename.to_s.sub! 'jpeg', 'jpeg'
+    result = Pathname.new(img).basename unless img == nil
     if result == nil 
       result = ""
     end

@@ -160,17 +160,15 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <%= javascript_include_tag "jquery.min" %>
+    <%= javascript_include_tag "bootstrap.bundle.min" %>
 
     <!-- Additional Scripts -->
-    <script src="/assets/js/custom.js"></script>
-    <script src="/assets/js/owl.js"></script>
-    <script src="/assets/js/slick.js"></script>
-    <script src="/assets/js/isotope.js"></script>
-    <script src="/assets/js/accordions.js"></script>
-
+    <%= javascript_include_tag "custom" %>
+    <%= javascript_include_tag "owl" %>
+    <%= javascript_include_tag "slick" %>
+    <%= javascript_include_tag "isotope" %>
+    <%= javascript_include_tag "accordions" %>
 
     <script language = "text/Javascript"> 
       cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
