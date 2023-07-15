@@ -1,4 +1,5 @@
 Rails.application.config.dartsass.builds = {
+    "application.scss" => "application.css",
     "slick.scss"       => "slick.css"
 }
 
